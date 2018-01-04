@@ -1,0 +1,4 @@
+By TransectionId : $P{TransectionID} type string
+by_consumerNO :  $P{ConsumerNo} type string
+Date_wise : $P{Start_date} type string and $P{end_date} type string
+Company_wise : $P{Start_date} type string and $P{end_date} type string

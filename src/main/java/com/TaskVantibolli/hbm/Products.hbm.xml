@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 31, 2017 10:12:37 PM by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="pwidb" dynamic-insert="false" dynamic-update="false" mutable="true" name="Products" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="products">
+        <id name="prodId" type="String">
+            <column name="prodId"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="Brands" embed-xml="true" fetch="select" insert="true" name="brands" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="brandId"/>
+        </many-to-one>
+        <many-to-one class="Producttypes" embed-xml="true" fetch="select" insert="true" name="producttypes" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="prodTypeId"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="prodDescription" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="prodDescription"/>
+        </property>
+        <property generated="never" lazy="false" name="prodMvalue" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="prodMValue"/>
+        </property>
+        <property generated="never" lazy="false" name="prodSize" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="prodSize"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="warehouses" optimistic-lock="true" sort="unsorted" table="warehouse">
+            <key on-delete="noaction">
+                <column name="prodId"/>
+            </key>
+            <one-to-many class="Warehouse" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

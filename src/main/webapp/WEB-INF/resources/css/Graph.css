@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#containers {
+	width: 600px;
+	height: 384px;
+	margin: 8px auto;
+}
+.jqplot-table-legend{
+	visibility: hidden;
+}

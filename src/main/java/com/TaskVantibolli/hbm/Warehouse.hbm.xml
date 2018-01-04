@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 31, 2017 10:12:37 PM by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="pwidb" dynamic-insert="false" dynamic-update="false" mutable="true" name="Warehouse" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="warehouse">
+        <id name="warehouseId" type="java.lang.Integer">
+            <column name="warehouseId"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="Offices" embed-xml="true" fetch="select" insert="true" name="offices" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="officeId"/>
+        </many-to-one>
+        <many-to-one class="Products" embed-xml="true" fetch="select" insert="true" name="products" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="prodId"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="inStock" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="InStock"/>
+        </property>
+        <property generated="never" lazy="false" name="avlQty" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="AvlQty"/>
+        </property>
+        <property generated="never" lazy="false" name="inTransit" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="InTransit"/>
+        </property>
+        <property generated="never" lazy="false" name="moq" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="MOQ"/>
+        </property>
+        <property generated="never" lazy="false" name="qpb" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="QPB"/>
+        </property>
+        <property generated="never" lazy="false" name="reorderPoint" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="reorderPoint"/>
+        </property>
+        <property generated="never" lazy="false" name="warehouseDescp" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="warehouseDescp"/>
+        </property>
+    </class>
+</hibernate-mapping>

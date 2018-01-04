@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head> 
+	
+	<link href="/resources/css/style.css" rel="stylesheet" type="text/css"></link>
+	<link rel="shortcut icon" href="images/Daaslogo.png"
+		type="image/x-icon"></link>
+	<script src="JavaScript/blockui/jquery.blockUI.js"></script>
+	<script type="text/javascript">
+		function clearMessage() {
+
+			var x = document.getElementById("login:message").innerHTML = "";
+		}
+
+		function blockUI(message) {
+			/* $.msg({ 
+				  content : '<img src="../images/busy.gif"/> Please wait ',
+				 
+				  klass : 'my-colors',
+				  
+				}); */
+
+			/* 	$.blockUI(null); */
+			$.blockUI({
+				message : '<center><img src="images/loader.gif" />' + '<b>'
+						+ message + '</b></center>',
+				css : {
+					border : 'none',
+					padding : '15px',
+					backgroundColor : 'transparent',
+					'-webkit-border-radius' : '10px',
+					'-moz-border-radius' : '10px',
+					opacity : .5,
+					color : '#fff'
+				}
+			});
+		}
+
+		function unblockUI() {
+
+			$.unblockUI();
+
+		}
+	</script>
+	<title>Login</title>
+	
+	
+	
+	</h:head>
+	<h:body styleClass="loginBody">
+	
+	<div style="margin: 0 auto; color:green; width: 150%">
+		<h:graphicImage value="images/Daaslogo.png" ></h:graphicImage>
+	</div>
+	<div style="margin: 0 auto; width: 50%">
+		<h1 style="text-align:center">PWI</h1>
+		
+	</div>
+	<h:form id="login">
+		
+		<div class="logindiv">
+			<table style="" align="center" bgcolor="images/login-bg.png"  
+				width="744px" >
+				<p:dialog id="wait" styleClass="loginWaitingdiv" autosized="false"
+					closable="false" modal="true" moveable="false" widgetVar="waitView"
+					resizable="false" header="Loading..." shadowDepth="0"
+					shadowOpacity="0"
+					style="overflow:visible; background-color: white; border:none; width: 100px;height: 100px;">
+					<h:graphicImage alt="wait..." value="images/loader.gif"></h:graphicImage>
+				</p:dialog>
+
+				<tr align="center">
+
+					<td valign="middle">
+						<table align="center" cellpadding="5"
+							style="vertical-align: bottom;">
+
+
+							<tr>
+								<td align="center"><img src="images/vdi-Pro.png"
+									alt="Warehouse System"></img></td>
+							</tr>
+							<tr>
+
+								<td align="center"><h:outputText value="#{helloController.message}"
+										styleClass="messageText" style="color:red"
+										id="message" /></td>
+							</tr>
+							<tr>
+
+								<td><p:inputText 
+										style="text-transform: uppercase;" onclick="clearMessage();"
+										value="#{helloController.userName}" id="userName" size="30" /> <p:watermark
+										for="userName" value="#{adminmsg.username}" /></td>
+							</tr>
+
+							<tr>
+
+								<td><p:password styleClass="loginPasswordTxtField"
+										value="#{helloController.password}" id="password" size="30" /> <p:watermark
+										for="password" value="#{adminmsg.password}" /></td>
+							</tr>
+							<tr>
+								<td width="25px"></td>
+							</tr>
+							 <tr>
+								<td>
+								<h:commandButton styleClass="loginbtn"
+										update="message" id="login_btn"
+										value="Submit" action="#{helloController.login()}">
+									</h:commandButton>
+									</td>
+							</tr> 
+							
+							
+							</table>
+							</td>
+							</tr>
+							</table>
+							</div>
+							<p:dialog global="true" showEffect="fade" hideEffect="fade"
+			modal="true" focus="okDashboard" id="loginConfirmDialogId"
+			widgetVar="loginConfirmDialogVar">
+			<h:outputLabel value="Successfull" />
+			<br></br>
+			<h:commandButton value="Ok" style="float:right;" id="okDashboard"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		</p:dialog>
+							
+							
+							
+							</h:form>
+	
+	</h:body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <h:body>
+	Hello
+	#{helloController.showHello}
+	</h:body> -->
+	</html>

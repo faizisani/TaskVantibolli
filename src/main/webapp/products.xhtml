@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Products</title>
+</h:head>
+<h:body>
+	<div style="margin: 0 auto; color: green; width: 150%"></div>
+
+	<div style="margin: 0 auto; width: 50%">
+		<h1 style="text-align: center">Products list</h1>
+
+	</div>
+
+
+	<h:form id="products">
+		<p:growl id="msgs" showDetail="true" />
+
+		<div class="productsdiv">
+			<p:commandButton value="Populate Product List"
+				actionListener="#{productsController.findAll()}" update="prodTable"></p:commandButton>
+		
+
+			<p:dataTable id="prodTable" var="prod"
+				value="#{productsController.prodList}" rowKey="#{prod[0]}"
+				paginator="true"
+				selection="#{productsController.selectionProdList}">
+
+				 <p:ajax event="rowSelect" listener="#{productsController.deleteProd}"
+					update=":products:msgs" /> 
+				<f:facet name="header">
+            <p:commandButton value="Delete Selected Product"
+			actionListener="#{productsController.deleteProd()}" ></p:commandButton>
+        </f:facet>
+				<p:column selectionMode="single"
+					style="width:16px;text-align:center" />
+
+				<p:column headerText="Brand Name">
+					<h:outputText value="#{prod[1]}" />
+				</p:column>
+
+				<p:column headerText="Product TypeName">
+					<h:outputText value="#{prod[2]}" />
+				</p:column>
+
+				<p:column style="bold" headerText="Product Description">
+					<h:outputText value="#{prod[3]}" />
+				</p:column>
+
+				<p:column headerText="Product Market Value">
+					<h:outputText value="#{prod[4]}" />
+				</p:column>
+
+				<p:column headerText="Product Size">
+					<h:outputText value="#{prod[5]}" />
+				</p:column>
+
+
+			</p:dataTable>
+		</div>
+
+
+
+	</h:form>
+
+</h:body>
+</html>
+
+

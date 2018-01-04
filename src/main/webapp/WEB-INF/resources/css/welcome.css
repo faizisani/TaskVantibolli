@@ -1,0 +1,92 @@
+@CHARSET "ISO-8859-1";
+
+.welcomeHeading {
+	padding-top: 20px;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+}
+
+.welcomeText {
+	font-size: 20px;
+	text-align: left;
+}
+
+.welcomeHeadingConnection{
+	position: absolute;
+	top: 10px;
+	/* in conjunction with left property, decides the text position */
+	
+	
+}
+.welcomeTextConnection{
+	font-family:arial;
+	position: absolute;
+	top: 10px;
+	/* in conjunction with left property, decides the text position */
+	left: 10px;
+	font-size: 20px;
+	
+}
+.welcomeSubBobyConnection {
+	top: 10px;
+	/* in conjunction with left property, decides the text position */
+	left: 20px;
+	color:white;
+	margin-left: 30px;
+	margin-right:5px;
+	margin-top:35px;
+	font-size: 14px;
+	
+}
+.welcomeBody {
+	color:#8473A0;
+	height: 500px;
+	float: left;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+.welcomeSubBoby {
+	color:white;
+	margin-left: 20px;
+	font-size: 14px;
+}
+.welcomefirstLine {
+	margin-left: 0px;
+	color: white;
+}
+
+.ui-icon-circle-minu {
+	background-image: url("../images/Daaslogo.png");
+}
+
+.image {
+	position: relative;
+	padding:10px;
+	float: left; /* optional */
+}
+.image:hover {
+	position: relative;
+	padding:10px;
+	float: left; /* optional */
+	cursor: pointer;
+}
+
+.image .text {
+	position: absolute;
+	top: 40px;
+	font-family:arial;
+	left: 70px;
+	width: 300px; /* optional, though better have one */
+	font-size: 20px;
+	text-align: center;
+}
+
+.image .secondImage {
+	top: 10px;
+	position: absolute;
+	/* in conjunction with left property, decides the text position */
+	
+	
+}

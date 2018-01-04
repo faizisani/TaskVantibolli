@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">Admin@123</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pwidb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        
+        <mapping resource="com/taskvantibolli/hbm/Brands.hbm.xml"></mapping>
+         <mapping resource="com/taskvantibolli/hbm/Companies.hbm.xml"></mapping>
+          <mapping resource="com/taskvantibolli/hbm/Offices.hbm.xml"></mapping>
+           <mapping resource="com/taskvantibolli/hbm/Products.hbm.xml"></mapping>
+            <mapping resource="com/taskvantibolli/hbm/Users.hbm.xml"></mapping>
+             <mapping resource="com/taskvantibolli/hbm/Warehouse.hbm.xml"></mapping>
+    </session-factory>
+</hibernate-configuration>
